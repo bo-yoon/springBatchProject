@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.batchprogram.dao.MemberDao">
+
+	<select id="selectMember"	resultType="com.batchprogram.model.Member">
+		SELECT *
+		FROM member 
+		ORDER BY member_id
+	</select>
+	
+	<select id="selectMember2" 	resultType="com.batchprogram.model.Member">
+		SELECT *
+		FROM member 
+		ORDER BY member_id limit #{_skiprows},#{_pagesize}
+	</select>
+	
+	<select id="selectMember3"	 parameterType="java.lang.Long" resultType="com.batchprogram.model.Member">
+		SELECT *
+		FROM member 
+		where member_id=#{member_id}
+	</select>
+
+	<select id="selectMember4"	 parameterType="java.lang.Long" resultType="com.batchprogram.model.Member">
+		select * 
+		from member 
+		where date(date_add(join_date, interval +1 year)) = date(now())
+	</select>
+
+	<update id="updateMember"  parameterType="java.lang.Long">
+		update member 
+		set dormant_status = 'SLEEP' 
+		where dormant_status='ACTIVE'
+		and member_id = #{member_id}
+		
+	</update>
+	
+</mapper>

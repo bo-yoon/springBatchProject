@@ -1,0 +1,2 @@
+com/by/batchprogram/BatchprogramApplicationTests.java
+ com.by.batchprogram.BatchprogramApplicationTests

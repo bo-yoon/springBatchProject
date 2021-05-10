@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.batchprogram.dao.OrderDao">
+
+	<select id="selectOrder" 	resultType="com.batchprogram.model.Order">
+		select  max(order_date) order_date, member_id 
+		from orders 
+		where status='ORDERED' 
+		and dormant_status='NOTDONE'
+		and SUBDATE(NOW(), INTERVAL 3 MONTH) > order_date
+		group by member_id
+	</select>
+	
+	<select id="selectOrder2" 	resultType="com.batchprogram.model.Order">
+		SELECT  max(order_date) order_date, member_id 
+		FROM orders
+		WHERE status='ORDERED'
+		and dormant_status='NOTDONE'
+		AND SUBDATE(NOW(), INTERVAL 3 MONTH)  > order_date
+		GROUP BY member_id limit #{_skiprows,jdbcType=INTEGER},#{_pagesize,jdbcType=INTEGER}
+	</select>
+	
+	
+	<select id="selectOrder3" 	resultType="com.batchprogram.model.Order">
+		select count(order_id) , member_id
+		from orders   
+		where coupon_status ="NOTDONE"       
+		group by member_id          
+		having count(order_id) >=5;
+	</select>
+	
+	<select id="selectOrder4" 	resultType="com.batchprogram.model.Order">
+		select  member_id
+		from orders   
+		where coupon_status ="NOTDONE"       
+		group by member_id          
+		having count(order_id) >=5;
+	</select>
+	
+	
+	
+	<update id="updateOrder">
+		update orders 
+		set dormant_status = 'ISDONE' 
+		where status='ORDERED' 
+		and dormant_status='NOTDONE'
+		and SUBDATE(NOW(), INTERVAL 3 MONTH) > order_date;	
+	</update>
+	
+	<update id="updateOrder2"	parameterType="com.batchprogram.model.Order"
+	keyProperty="member_id" useGeneratedKeys="true">
+		<selectKey keyProperty="member_id" resultType="Long" order="BEFORE">
+			select member_id from orders where coupon_status ="NOTDONE" group by member_id having count(order_id) >=5;
+		</selectKey>
+		update orders 
+		set coupon_status="ISDONE" 
+		where member_id=#{member_id};
+	</update>
+</mapper>
+
+

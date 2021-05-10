@@ -1,0 +1,62 @@
+com/batchprogram/writer/OrderWriter.java
+ com.batchprogram.writer.OrderWriter
+com/batchprogram/model/Coupon.java
+ com.batchprogram.model.Coupon
+com/batchprogram/writer/CouponWriter.java
+ com.batchprogram.writer.CouponWriter
+com/batchprogram/model/Address.java
+ com.batchprogram.model.Address
+com/batchprogram/model/CouponStatus.java
+ com.batchprogram.model.CouponStatus
+com/batchprogram/listener/JobCompletionNotificationListener.java
+ com.batchprogram.listener.JobCompletionNotificationListener
+com/batchprogram/model/DormantStatus.java
+ com.batchprogram.model.DormantStatus
+com/batchprogram/processor/Coupon3BatchProcessor.java
+ com.batchprogram.processor.Coupon3BatchProcessor
+com/batchprogram/dao/MemberDormantDao.java
+ com.batchprogram.dao.MemberDormantDao
+com/batchprogram/configuration/DormantConfiguration.java
+ com.batchprogram.configuration.DormantConfiguration
+com/batchprogram/dao/MemberDao.java
+ com.batchprogram.dao.MemberDao
+com/batchprogram/model/Order.java
+ com.batchprogram.model.Order
+com/batchprogram/configuration/CouponConfiguration.java
+ com.batchprogram.configuration.CouponConfiguration
+com/batchprogram/reader/MemberReader.java
+ com.batchprogram.reader.MemberReader
+com/batchprogram/dao/OrderDao.java
+ com.batchprogram.dao.OrderDao
+com/batchprogram/model/Member.java
+ com.batchprogram.model.Member
+com/batchprogram/Incrementer/CurrentTimeIncrementer.java
+ com.batchprogram.Incrementer.CurrentTimeIncrementer
+com/batchprogram/listener/ChunkExecutionListener.java
+ com.batchprogram.listener.ChunkExecutionListener
+com/batchprogram/processor/Coupon1BatchProcessor.java
+ com.batchprogram.processor.Coupon1BatchProcessor
+com/batchprogram/processor/Coupon2BatchProcessor.java
+ com.batchprogram.processor.Coupon2BatchProcessor
+com/batchprogram/writer/MemberWriter.java
+ com.batchprogram.writer.MemberWriter
+com/batchprogram/reader/CouponReader.java
+ com.batchprogram.reader.CouponReader
+com/batchprogram/listener/StepExecutionNotificationListener.java
+ com.batchprogram.listener.StepExecutionNotificationListener
+com/batchprogram/reader/OrderReader.java
+ com.batchprogram.reader.OrderReader
+com/batchprogram/writer/MDWriter.java
+ com.batchprogram.writer.MDWriter
+com/batchprogram/processor/Dormant1BatchProcessor.java
+ com.batchprogram.processor.Dormant1BatchProcessor
+com/batchprogram/processor/Dormant2BatchProcessor.java
+ com.batchprogram.processor.Dormant2BatchProcessor
+com/batchprogram/configuration/BatchConfiguration.java
+ com.batchprogram.configuration.BatchConfiguration
+com/batchprogram/model/MemberDormant.java
+ com.batchprogram.model.MemberDormant
+com/batchprogram/BatchprogramApplication.java
+ com.batchprogram.BatchprogramApplication
+com/batchprogram/dao/CouponDao.java
+ com.batchprogram.dao.CouponDao
